@@ -1,9 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using ShopAPI.Models;
 
 namespace ShopAPI.DataContext
 {
-    public class ClassDbContext : DbContext
+    public class ClassDbContext : IdentityDbContext
     {
         public ClassDbContext(DbContextOptions<ClassDbContext> options) : base(options)
         {
@@ -18,7 +19,7 @@ namespace ShopAPI.DataContext
         public DbSet<Product> Products { get; set; }
         public DbSet<SubCategory> SubCategories { get; set; }
 
-
+        public  DbSet<AppUser> AppUsers { get; set; }
 
     }
 

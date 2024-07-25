@@ -36,7 +36,7 @@ namespace ShopAPI.Controllers
         [HttpGet("GetAll")]
         public async Task<IActionResult> GetAll()
         {
-            var data = _classDbContext.Categories.Include("SubCategories").ToList();
+            var data = _classDbContext.Categories.ToList();
             return Ok(data);
         }
 
@@ -53,7 +53,7 @@ namespace ShopAPI.Controllers
         {
             Category old = _classDbContext.Categories.FirstOrDefault(x => x.id == id);
             old.Name = categoryDTO.Name;
-             _classDbContext.SaveChanges();
+            _classDbContext.SaveChanges();
             return Ok(old);
 
 
@@ -62,7 +62,7 @@ namespace ShopAPI.Controllers
         [HttpDelete("Delete")]
         public async Task<IActionResult> Delete(int id)
         {
-            var data = _classDbContext.Categories.FirstOrDefault(x=>x.id==id);
+            var data = _classDbContext.Categories.FirstOrDefault(x => x.id == id);
             _classDbContext.Categories.Remove(data);
             _classDbContext.SaveChanges();
             return Ok(data);

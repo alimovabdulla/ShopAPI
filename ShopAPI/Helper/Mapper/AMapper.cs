@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using ShopAPI.DTOs.AccountDTOs;
 using ShopAPI.DTOs.BrandDTOs;
 using ShopAPI.DTOs.CategoryDTOs;
 using ShopAPI.DTOs.ProductDTOs;
@@ -15,6 +16,7 @@ namespace ShopAPI.Helper.Mapper
             CreateMap<Category, CategoryDTO>().ReverseMap();
             CreateMap<SubCategory, SubDTO>().ReverseMap();
             CreateMap<Brand, BrandDTO>().ReverseMap();
+           
         }
     }
 }

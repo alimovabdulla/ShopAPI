@@ -33,7 +33,7 @@ namespace ShopAPI.Controllers
         [HttpGet("All")]
         public async Task<IActionResult> GetAll()
         {
-            var data = _classDbContext.SubCategories.ToList();
+            var data = _classDbContext.SubCategories.Include(b=>b.Brands).Include(n=>n.Category).ToList();
             return Ok(data);
         }
         [HttpGet("Get")]

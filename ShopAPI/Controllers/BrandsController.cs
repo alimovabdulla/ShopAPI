@@ -32,7 +32,7 @@ namespace ShopAPI.Controllers
         [HttpGet("GetAll")]
         public async Task<IActionResult> GetAll()
         {
-            var data = _classDbContext.Brands.ToList();
+            var data = _classDbContext.Brands.Include(x=>x.Products).ToList();
             return Ok(data);
         }
         [HttpGet("Get")]
